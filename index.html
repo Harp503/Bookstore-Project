@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book Store Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="banner">
+        <img class="banner-image" src="assets/bookstorebanner.jpg" alt="Bookstore banner for website">
+    </div>
+<h1>Book Store</h1>
+
+<h2>Tell Us What We Need</h2>
+<form id="add-book"> 
+    <div class="book-info">  
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-name" id="title" name="title" placeholder="Add book title" required>
+    </div>
+
+   <div class="book-info">
+    <label for="author" class="form-label">Author</label>
+    <input type="text" class="form-name" id="author" name="author" placeholder="Add author's name" required>
+   </div>
+ 
+    <div class="book-info">
+    <label for="genre" class="form-label">Genre</label>
+    <input type="text" class="form-name" id="genre" name="genre" placeholder="Add genre" required> </div>
+ 
+    <div class="book-info">
+        <label for="publisher" class="form-label">Publisher</label>
+    <input type="text" class="form-name" id="publisher" name="publisher" placeholder="Add publisher" required>
+   </div>
+<br>
+    <button type="submit">Add Book</button>
+</form>
+<br>
+<h2>Available Books</h2>
+<section id="books-table" class="d-flex flex-column">
+    <section class="table-header d-flex p-2">
+        <section class="table-header-item"><h3>Title</h3></section>
+        <section class="table-header-item"><h3>Author</h3></section>
+        <section class="table-header-item"><h3>Genre</h3></section>  
+        <section class="table-header-item"><h3>Publisher</h3></section>
+        <section class="table-header-item"><h3>Action</h3></section> 
+    </section>
+</section>
+
+<script src="index.js"></script>
 </body>
 </html>
