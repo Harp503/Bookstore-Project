@@ -1,3 +1,4 @@
+// API Configuration
 const addBookForm = document.querySelector("#add-book");
 const booksTable = document.querySelector("#books-table");
 const apiUrl = "https://bookstore-api-six.vercel.app/";
@@ -6,10 +7,12 @@ const headers = {
     "Content-type": "application/json"
   };
   
-  // Post
+  // Add Book
   addBookForm.addEventListener("submit", handleAddBook);
 
 async function handleAddBook(event){
+
+  // Prevents page from reloading
   event.preventDefault();
   try {
         const payload = { 
@@ -28,14 +31,18 @@ const data = await response.json();
 
 const newElement = document.createElement("section");
 newElement.classList.add("table-row", "d-flex");
+
 newElement.innerHTML = `
-    <section class="book-info">${data.title}</section>
-    <section class="book-info">${data.author}</section>
-    <section class="book-info">${data.genre}</section>
-    <section class="book-info">${data.publisher}</section>
-    <button class="delete-todo" data-id="${data.id}">Delete</button>
+    <section class="table-header-item">${data.title}</section>
+    <section class="table-header-item">${data.author}</section>
+    <section class="table-header-item">${data.genre}</section>
+    <section class="table-header-item">${data.publisher}</section>
+    <section class="table-header-item">
+      <button class="delete-todo" data-id="${data.id}">Delete</button>
+    </section>
   `;
 booksTable.appendChild(newElement);
+// Clears form after submitting
 event.target.reset();
 
   } catch (error) {
@@ -60,7 +67,8 @@ document.addEventListener("click", async function (event) {
     if (event.target.classList.contains ("delete-todo")){
       const id = event.target.getAttribute("data-id");
       await deleteBook(id);
-      event.target.parentElement.remove();
+      const row = event.target.closest(".table-row");
+      row.remove();
     }
 });
 
@@ -73,12 +81,15 @@ async function fetchBooks() {
         books.forEach(data => {
           const newElement = document.createElement("section"); 
           newElement.classList.add("table-row", "d-flex");
+
           newElement.innerHTML = `
-            <section class="book-info">${data.title}</section>
-            <section class="book-info">${data.author}</section>
-            <section class="book-info">${data.genre}</section>
-            <section class="book-info">${data.publisher}</section>
-            <button class="delete-todo" data-id="${data.id}">Delete</button>
+            <section class="table-header-item">${data.title}</section>
+            <section class="table-header-item">${data.author}</section> 
+            <section class="table-header-item">${data.genre}</section>
+            <section class="table-header-item">${data.publisher}</section>
+            <section class="table-header-item"> 
+              <button class="delete-todo" data-id="${data.id}">Delete</button>
+            </section>
             `;
             booksTable.appendChild(newElement);
     });

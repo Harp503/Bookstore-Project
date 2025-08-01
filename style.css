@@ -71,28 +71,39 @@ button: hover {
 .flex-column {
   flex-direction: column;
 }
+/* Table Rows Available Books */
+.table-row {
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
 
 /* Table Header */
 .table-header {
     background-color: rgb(44, 158, 44);
     border-bottom: solid 3px black;
 }
+/* Column inside rows */
 .table-header-item {
-    flex-grow: .5;
+    flex: 1;
     display: flex;
     justify-content: center;
     padding: 10px;
     align-items: center;
+    text-align: center;
 }
+
 
 /* Delete Button in Table */
 button.delete-todo {
   background-color: green;
   color: white;
-  width: 30%;
-  margin-left: 5px;
   padding:  10px;
   border: none;
   border-radius: 5px;
-   
+  cursor: pointer;
+  width: 30%;
+  margin-left: 5px;
 }
+
